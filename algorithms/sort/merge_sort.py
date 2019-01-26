@@ -1,4 +1,13 @@
 def merge_sort(arr: list):
+    """
+    Implementation of the Merge Sort algorithm. Sorts a list of integers in
+    O(N log N) time complexity with O(N) space complexity.
+
+    Note that this algorithm performs changes "in place", meaning that the
+    given array object is edited. 
+
+    :param arr: The list to be sorted
+    """
     if len(arr) > 1:
         mid = len(arr) // 2
         left = arr[:mid]
