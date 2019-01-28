@@ -12,7 +12,7 @@ class TestBinarySearch(TestCase):
         self.arr = range(0, length)
 
     def test_find_value_in_array(self):
-        val = random.randint(0, len(self.arr))
+        val = random.randint(0, len(self.arr) - 1)
 
         pos = binary_search(self.arr, val)
 
@@ -23,7 +23,7 @@ class TestBinarySearch(TestCase):
         )
 
     def test_find_non_existent(self):
-        val = random.randint(0, 100) * -1
+        val = random.randint(1, 100) * -1
 
         result = binary_search(self.arr, val)
 

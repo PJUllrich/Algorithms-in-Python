@@ -15,7 +15,7 @@ class TestBreadthFirstSearch(TestCase):
 
     def test_find_vertex(self):
         start = 0
-        find = random.randint(1, self.graph.vcount())
+        find = random.randint(1, self.graph.vcount() - 1)
 
         found = depth_first_search(self.graph, start, find)
 
