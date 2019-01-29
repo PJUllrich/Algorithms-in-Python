@@ -8,18 +8,18 @@ class TestBinarySearchTree(TestCase):
     tree: BinarySearchTree
 
     def setUp(self):
-        self.tree = BinarySearchTree()
+        random_node = Node(random.randint(0, 100))
+        self.tree = BinarySearchTree(random_node)
 
     def test_insert_root(self):
-        random_data = random.randint(0, 100)
-
-        self.tree.insert(random_data)
+        random_node = Node(random.randint(0, 100))
+        tree = BinarySearchTree(random_node)
 
         self.assertEqual(
-            self.tree.root.data,
-            random_data,
-            f'Root node data {self.tree.root.data} '
-            f'does not equal {random_data}'
+            tree.root.data,
+            random_node.data,
+            f'Root node data {tree.root.data} '
+            f'does not equal {random_node.data}'
         )
 
     def test_insert_multiple(self):
@@ -29,14 +29,13 @@ class TestBinarySearchTree(TestCase):
         self._check_binary_search_tree(self.tree.root)
 
     def test_find_root(self):
-        random_value = random.randint(0, 100)
-
-        self.tree.insert(random_value)
+        node_found = self.tree.find(self.tree.root.data)
 
         self.assertEqual(
             self.tree.root.data,
-            random_value,
-            f'Root data {self.tree.root.data} is not equal to {random_value}'
+            node_found.data,
+            f'Root data {self.tree.root.data} '
+            f'is not equal to {node_found.data}'
         )
 
     def test_find(self):

@@ -2,6 +2,12 @@ from __future__ import annotations
 
 
 class Node:
+    """
+    A Node in a Linked List.
+
+    Holds a data value and an optional reference to the next Node object in
+    the Linked List.
+    """
     data: any
     next: Node
 
@@ -17,6 +23,13 @@ class Node:
 
 
 class LinkedList:
+    """
+    Implementation of a Linked List.
+
+    Offers functionality to add, find, and delete from a linked list of Nodes.
+    Offers functionality to traverse a linked list of Nodes.
+    """
+
     head: Node
 
     def __init__(self):
@@ -41,9 +54,7 @@ class LinkedList:
             tmp = tmp.next
 
     def add_after(self, node: Node, to_insert: Node):
-        tmp = self.head
-        while tmp.next is not None and tmp != node:
-            tmp = tmp.next
+        tmp = self.find(node)
 
         if tmp is not None:
             to_insert.next, tmp.next = tmp.next, to_insert
@@ -56,9 +67,7 @@ class LinkedList:
             self.add_first(to_insert)
             return
 
-        tmp = self.head
-        while tmp.next is not None and tmp.next != node:
-            tmp = tmp.next
+        tmp = self.find_before(node)
 
         to_insert.next = tmp.next
         tmp.next = to_insert
