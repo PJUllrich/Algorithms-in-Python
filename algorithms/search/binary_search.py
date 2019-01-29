@@ -1,4 +1,3 @@
-from math import floor
 from typing import Optional
 
 
@@ -16,9 +15,10 @@ def binary_search(arr: [], val: int) -> Optional[int]:
 
     while low <= high:
         mid = (low + high) // 2
-        if arr[mid] < val:
+        item = arr[mid]
+        if item < val:
             low = mid + 1
-        elif arr[mid] > val:
+        elif item > val:
             high = mid - 1
         else:
             return mid

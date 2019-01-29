@@ -27,11 +27,8 @@ def depth_first_search(graph: igraph.Graph,
     if start == val:
         return val
 
-    q = collections.deque()
-    visited = set()
-
-    q.append(start)
-    visited.add(start)
+    q = collections.deque([start])
+    visited = set([start])
 
     while len(q) != 0:
         v = q.popleft()
